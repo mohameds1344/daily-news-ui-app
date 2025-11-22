@@ -35,11 +35,27 @@ class topListView extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return Scaffold(
+                            appBar: AppBar(
+                              leading: Padding(
+                                padding: const EdgeInsets.only(left: 12),
+                                child: CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: Colors.grey.shade100,
+                                  child: IconButton(
+                                    onPressed: () => Navigator.pop(context),
+                                    icon: Icon(
+                                      Icons.arrow_back_ios_new_outlined,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                             body: CustomScrollView(
                               slivers: [
                                 NewsListViewBuilder(
                                   category: "top",
-                                  lang: "en",
+                                  lang: "ar",
                                 ),
                               ],
                             ),

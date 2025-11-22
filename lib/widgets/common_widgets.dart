@@ -10,7 +10,7 @@ class ErrorMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Oops! Something went wrong. Please try again later',
+      'Oops! Something went wrong, Please try again later',
       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     );
   }
@@ -29,54 +29,43 @@ class LoadingWidget extends StatelessWidget {
 }
 
 
+void showFeatureMessage(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      padding: EdgeInsets.only(bottom: 5),
+
+      content: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Color(0xff4a4e69),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.build, color: Colors.white),
+            SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                "This feature is coming soon! 🚀",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
 
 
 
-// class showEmptyBox extends StatelessWidget {
-//   const showEmptyBox({super.key});
 
-//   void showEmptyDialog(BuildContext context) {
-//     showDialog(
-//       context: context,
-//       builder: (BuildContext context) {
-//         return AlertDialog(
-//           title: const Row(
-//             children: [
-//               Text("🛠️ ", style: TextStyle(fontSize: 15)),
-//               Text(
-//                 "This feature is coming soon! ",
-//                 style: TextStyle(
-//                   fontSize: 15,
-//                   color: Colors.black,
-//                   fontWeight: FontWeight.w600,
-//                 ),
-//               ),
-//               Text("🚀", style: TextStyle(fontSize: 15)),
-//             ],
-//           ),
-//           content: Text("by mohamed,"),
-//           actions: <Widget>[
-//             TextButton(
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//               },
-//               child: Text("colsed"),
-//             ),
-//           ],
-//         );
-//       },
-//     );
-//   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: ElevatedButton(
-//         onPressed: () {
-//           showEmptyDialog(context);
-//         },
-//         child: const Text(''),
-//       ),
-//     );
-//   }
-// }

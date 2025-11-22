@@ -1,5 +1,6 @@
 import 'package:daily_news/views/category_bottom_view.dart';
 import 'package:daily_news/widgets/bottom_bar.dart';
+import 'package:daily_news/widgets/common_widgets.dart';
 import 'package:daily_news/widgets/top_news_view.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   void onTapped(int index) {
     if (index == 3 || index == 2) {
-      showEmptyDialog();
+      showFeatureMessage(context);
     } else {
       setState(() {
         selectedIndex = index;
@@ -28,44 +29,11 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void showEmptyDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Row(
-            children: [
-              Text("🛠️ ", style: TextStyle(fontSize: 15)),
-              Text(
-                "This feature is coming soon! ",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text("🚀", style: TextStyle(fontSize: 15)),
-            ],
-          ),
-          content: Text("by mohamed,"),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("colsed"),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   AppBar _buildAppBar() {
     return AppBar(
-      toolbarHeight: 60,
+      toolbarHeight: 70,
       centerTitle: true,
-      elevation: 0, //shadow
+      elevation: 0, 
       backgroundColor: Colors.transparent,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -79,8 +47,7 @@ class _HomePageState extends State<HomePage> {
               fontSize: 27,
             ),
           ),
-          Icon(Icons.podcasts,
-          color: Colors.red,),
+          Icon(Icons.podcasts, color: Colors.red),
           Text(
             'ly News',
             style: TextStyle(
@@ -101,7 +68,7 @@ class _HomePageState extends State<HomePage> {
       extendBody: true,
       backgroundColor: Colors.white,
       appBar: _buildAppBar(),
-      
+
       body: _page.elementAt(selectedIndex),
 
       bottomNavigationBar: customBottomWidget(
@@ -110,5 +77,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
 }

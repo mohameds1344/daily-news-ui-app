@@ -20,6 +20,7 @@ class CategoryCard extends StatelessWidget {
               return CategoryView(
                 category: modelsCard.newsName,
                 lang: modelsCard.langauge,
+                nameApp: modelsCard.categoryName,
               );
             },
           ),
@@ -58,8 +59,3 @@ class CategoryCard extends StatelessWidget {
 }
 
 
-
-// ClipRRect(
-//             borderRadius: BorderRadius.circular(12),
-//             child: BackdropFilter(
-//             filter: ImageFilter.blur(sigmaX: 18,sigmaY: 18),)

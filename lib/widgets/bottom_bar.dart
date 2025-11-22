@@ -12,21 +12,25 @@ class customBottomWidget extends StatelessWidget {
 
   Widget buildItem(String path, int index) {
     bool isSelected = selectedIndex == index;
-    return GestureDetector(
-      onTap: () {
-        onItemTapped(index);
-      },
-      child: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.white : Colors.transparent,
-          borderRadius: BorderRadius.circular(35),
-        ),
-        child: Image.asset(
-          path,
-          width: 20,
-          height: 20,
-          color: isSelected ? Colors.blueAccent : Colors.white,
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(25),
+        onTap: () {
+          onItemTapped(index);
+        },
+        child: Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: isSelected ? Colors.white : Colors.transparent,
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: Image.asset(
+            path,
+            width: 45,
+            height: 22,
+            color: isSelected ? Colors.blueAccent : Colors.white,
+          ),
         ),
       ),
     );
@@ -35,12 +39,12 @@ class customBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12, left: 14, right: 14),
+      padding: const EdgeInsets.only(bottom: 5, left: 12, right: 12),
       child: Container(
-        height: 50,
+        height: 65,
         decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(35),
+          color: Color(0xff262837),
+          borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
