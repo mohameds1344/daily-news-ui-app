@@ -7,6 +7,11 @@ class NewsTill extends StatelessWidget {
   const NewsTill({super.key, required this.articleModels});
   final ArticleModel articleModels;
 
+  bool isArabic(String text) {
+    final arabic = RegExp(r'[\u0600-\u06FF]');
+    return arabic.hasMatch(text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,29 +43,27 @@ class NewsTill extends StatelessWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                     height: 200,
-                    placeholder:
-                        (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
-                    errorWidget:
-                        (context, url, error) => Image.network(
-                          "https://cdn.pixabay.com/photo/2024/07/20/17/12/warning-8908707_1280.png",
-                          width: 70,
-                          fit: BoxFit.cover,
-                        ),
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Image.network(
+                      "https://cdn.pixabay.com/photo/2024/07/20/17/12/warning-8908707_1280.png",
+                      width: 70,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-      
+
               const SizedBox(height: 12),
               Padding(
-                padding: const EdgeInsets.only(right: 12),
+                padding: const EdgeInsets.only(right: 12,left: 12),
                 child: Align(
-                  alignment: Alignment.centerRight,
+                  alignment: isArabic(articleModels.tittel)?Alignment.centerRight:Alignment.centerLeft,
                   child: Text(
                     articleModels.tittel,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    textDirection: TextDirection.rtl,
+                    textDirection: isArabic(articleModels.tittel)? TextDirection.rtl : TextDirection.ltr,
                     style: TextStyle(
                       color: Colors.black87,
                       fontFamily: "Poppins",
@@ -72,13 +75,15 @@ class NewsTill extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Padding(
-                padding: const EdgeInsets.only(right: 12,bottom: 12,left: 12),
+                padding: const EdgeInsets.only(right: 12, bottom: 12, left: 12),
                 child: Text(
                   articleModels.subTittel ?? '',
-                  textAlign: TextAlign.right,
+                  textAlign: isArabic(articleModels.subTittel??'')?TextAlign.right:TextAlign.left,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  textDirection: TextDirection.rtl,
+                  textDirection: isArabic(articleModels.subTittel??'')
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
                   style: TextStyle(color: Colors.black54, fontSize: 17),
                 ),
               ),
