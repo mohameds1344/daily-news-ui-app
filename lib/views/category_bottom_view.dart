@@ -1,9 +1,7 @@
 import 'package:daily_news/widgets/news_list_view_builder.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class EmptyView extends StatelessWidget {
-  
   EmptyView({super.key, required this.Category, required this.Lang});
   String Category;
   String Lang;
@@ -16,8 +14,4 @@ class EmptyView extends StatelessWidget {
       ),
     );
   }
-  
-  
 }
-
-

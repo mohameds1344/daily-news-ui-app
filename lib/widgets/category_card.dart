@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:daily_news/models/models_card.dart';
 import 'package:daily_news/views/category_view.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -20,7 +17,7 @@ class CategoryCard extends StatelessWidget {
               return CategoryView(
                 category: modelsCard.newsName,
                 lang: modelsCard.langauge,
-                nameApp: modelsCard.categoryName,
+                cagAppBarName: modelsCard.categoryName,
               );
             },
           ),
@@ -57,5 +54,3 @@ class CategoryCard extends StatelessWidget {
     );
   }
 }
-
-

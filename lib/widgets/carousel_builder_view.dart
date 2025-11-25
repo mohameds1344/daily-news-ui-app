@@ -1,4 +1,3 @@
-
 import 'package:daily_news/models/article_model.dart';
 import 'package:daily_news/services/news_services.dart';
 import 'package:daily_news/widgets/carousel_till.dart';
@@ -31,7 +30,6 @@ class _NewsListViewBuilderState extends State<CarouselBuilderView> {
     ).getTopHeadlineNews(category: widget.category, lang: widget.lang);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticleModel>>(
@@ -39,10 +37,9 @@ class _NewsListViewBuilderState extends State<CarouselBuilderView> {
       future: futur,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: Text(""),
-          ); // this
+          return Center(child: Text("")); // this
         } else if (snapshot.hasData) {
-          return carousel(CarousleList: snapshot.data!);
+          return NewsCarousel(articlesCarousel: snapshot.data!);
         } else if (snapshot.hasError) {
           return const ErrorMessage();
         } else {

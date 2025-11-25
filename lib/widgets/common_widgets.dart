@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-
-
-
 class ErrorMessage extends StatelessWidget {
   const ErrorMessage({super.key});
 
@@ -27,7 +24,6 @@ class LoadingWidget extends StatelessWidget {
     );
   }
 }
-
 
 void showFeatureMessage(BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -64,8 +60,3 @@ void showFeatureMessage(BuildContext context) {
     ),
   );
 }
-
-
-
-
-

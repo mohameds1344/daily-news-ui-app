@@ -2,8 +2,8 @@ import 'package:daily_news/models/models_card.dart';
 import 'package:daily_news/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
-class CateoriesListView extends StatelessWidget {
-  CateoriesListView({super.key});
+class CategoriesListView extends StatelessWidget {
+  CategoriesListView({super.key});
 
   List<ModelCard> CategoryList = [
     ModelCard(

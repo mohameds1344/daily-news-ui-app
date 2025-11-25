@@ -1,5 +1,4 @@
 import 'package:daily_news/widgets/common_widgets.dart';
-import 'package:daily_news/widgets/news_list_view_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -20,7 +19,7 @@ class _ArticleWebViewState extends State<ArticleWebView> {
   @override
   void initState() {
     super.initState();
-    if (widget.URL != null && widget.URL.isNotEmpty) {
+    if (widget.URL.isNotEmpty) {
       controller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
         ..setNavigationDelegate(

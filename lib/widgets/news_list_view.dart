@@ -1,13 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:daily_news/models/article_model.dart';
-import 'package:daily_news/services/news_services.dart';
 import 'package:daily_news/widgets/news_till.dart';
 import 'package:flutter/material.dart';
 
 class NewsListView extends StatelessWidget {
   final List<ArticleModel> articles;
 
-  NewsListView({super.key, required this.articles});
+  const NewsListView({super.key, required this.articles});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +16,10 @@ class NewsListView extends StatelessWidget {
       ) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          
+
           child: NewsTill(articleModels: articles[index]),
         );
-        
       }),
-      
     );
   }
 }
-
-
-
-
-
-

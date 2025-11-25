@@ -1,12 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:daily_news/models/article_model.dart';
 import 'package:daily_news/services/news_services.dart';
 import 'package:daily_news/widgets/common_widgets.dart';
 import 'package:daily_news/widgets/news_list_view.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
-
-
 
 class NewsListViewBuilder extends StatefulWidget {
   const NewsListViewBuilder({
@@ -32,7 +29,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
       Dio(),
     ).getTopHeadlineNews(category: widget.category, lang: widget.lang);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticleModel>>(
@@ -42,9 +39,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SliverFillRemaining(
             hasScrollBody: false,
-            child: Center(
-              child: LoadingWidget()
-            ),
+            child: Center(child: LoadingWidget()),
           ); // this
         } else if (snapshot.hasData) {
           return NewsListView(articles: snapshot.data!);
@@ -59,17 +54,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
             child: Center(child: Text("No Data!")),
           );
         }
-        
       },
     );
-    
   }
 }
-
-
-
-
-
-
-
-

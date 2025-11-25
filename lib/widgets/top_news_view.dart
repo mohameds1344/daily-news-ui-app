@@ -11,7 +11,7 @@ class topListView extends StatelessWidget {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverToBoxAdapter(child: CateoriesListView()),
+        SliverToBoxAdapter(child: CategoriesListView()),
         const SliverToBoxAdapter(child: SizedBox(height: 20)),
         SliverToBoxAdapter(
           child: CarouselBuilderView(category: "sports", lang: "en"),
@@ -24,9 +24,11 @@ class topListView extends StatelessWidget {
               children: [
                 const Text(
                   "Highlight",
-                  style: TextStyle(fontSize: 23, 
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontSize: 23,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 const Spacer(),
                 GestureDetector(
